@@ -5,23 +5,24 @@ networks:
     driver: bridge 
 
 services:
-  nosqldbinmemory2:
-    container_name: nosqldbinmemory2
+  nosqldbinmemory3:
+    container_name: nosqldbinmemory3
     image: nosqldbinmemory:latest
     build:
       context: NoSqlDBInMemory
       dockerfile: Dockerfile
     ports:
-      - "5052:80"
+      - "5053:80"
     networks:
       - services-network
     depends_on:
-      - keydb
+      - memcached
 
-  keydb:
-    container_name: keydb
-    image: eqalpha/keydb
+  memcached:
+    container_name: memcached
+    image: memcached
     ports:
-      - "6369:6379"
+      - "11210:11211"
     networks:
       - services-network
+    command: memcached -m 64 -I 20m
