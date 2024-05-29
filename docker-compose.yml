@@ -5,23 +5,13 @@ networks:
     driver: bridge 
 
 services:
-  nosqldbinmemory2:
-    container_name: nosqldbinmemory2
+  nosqldbinmemory6:
+    container_name: nosqldbinmemory6
     image: nosqldbinmemory:latest
     build:
       context: NoSqlDBInMemory
       dockerfile: Dockerfile
     ports:
-      - "5052:80"
-    networks:
-      - services-network
-    depends_on:
-      - keydb
-
-  keydb:
-    container_name: keydb
-    image: eqalpha/keydb
-    ports:
-      - "6369:6379"
+      - "5056:80"
     networks:
       - services-network
