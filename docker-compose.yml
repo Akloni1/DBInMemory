@@ -5,23 +5,23 @@ networks:
     driver: bridge 
 
 services:
-  nosqldbinmemory2:
-    container_name: nosqldbinmemory2
+  nosqldbinmemory5:
+    container_name: nosqldbinmemory5
     image: nosqldbinmemory:latest
     build:
       context: NoSqlDBInMemory
       dockerfile: Dockerfile
     ports:
-      - "5052:80"
+      - "5055:80"
     networks:
       - services-network
     depends_on:
-      - keydb
+      - apache
 
-  keydb:
-    container_name: keydb
-    image: eqalpha/keydb
+  apache:
+    container_name: apache
+    image: apacheignite/ignite
     ports:
-      - "6369:6379"
+      - "10800:10800"
     networks:
       - services-network
