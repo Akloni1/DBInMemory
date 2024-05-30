@@ -24,7 +24,7 @@ namespace NoSqlDBInMemory.Controllers
         {
             var jsonData = Task.Run(() => { return _cache.GetStringAsync("Products"); });
             await jsonData;
-            return NoContent();
+            return Ok();
         }
 
         [HttpGet]
@@ -33,7 +33,7 @@ namespace NoSqlDBInMemory.Controllers
         {
             var content = Task.Run(() => { return _cache.GetAsync("https://localhost:7025/home/render"); });
             await content;
-            return NoContent();
+            return Ok();
         }
 
         [HttpGet]
@@ -42,7 +42,7 @@ namespace NoSqlDBInMemory.Controllers
         {
             var contentCache = Task.Run(() => { return _cache.GetAsync("content"); });
             await contentCache;
-            return NoContent();
+            return Ok();
         }
 
         [HttpGet]
