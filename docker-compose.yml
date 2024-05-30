@@ -22,7 +22,7 @@ services:
     container_name: memcached
     image: memcached
     ports:
-      - "11210:11211"
+      - "11211:11211"
     networks:
       - services-network
     command: memcached -m 64 -I 20m
