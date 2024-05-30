@@ -22,8 +22,7 @@ namespace NoSqlDBInMemory.Controllers
         [Route("Products")]
         public async Task<IActionResult> GetProducts()
         {
-            var jsonData = Task.Run(() => { return _cache.GetStringAsync("Products"); });
-            await jsonData;
+            await _cache.GetStringAsync("Products");
             return NoContent();
         }
 
@@ -31,8 +30,7 @@ namespace NoSqlDBInMemory.Controllers
         [Route("Page")]
         public async Task<IActionResult> GetPage()
         {
-            var content = Task.Run(() => { return _cache.GetAsync("https://localhost:7025/home/render"); });
-            await content;
+            await _cache.GetAsync("https://localhost:7025/home/render");
             return NoContent();
         }
 
@@ -40,8 +38,7 @@ namespace NoSqlDBInMemory.Controllers
         [Route("Doc")]
         public async Task<IActionResult> GetDoc()
         {
-            var contentCache = Task.Run(() => { return _cache.GetAsync("content"); });
-            await contentCache;
+            await _cache.GetAsync("content");
             return NoContent();
         }
 
