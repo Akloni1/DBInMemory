@@ -23,7 +23,7 @@ namespace NoSqlDBInMemory.Controllers
         public async Task<IActionResult> GetProducts()
         {
             await _cache.GetStringAsync("Products");
-            return NoContent();
+            return Ok();
         }
 
         [HttpGet]
@@ -31,7 +31,7 @@ namespace NoSqlDBInMemory.Controllers
         public async Task<IActionResult> GetPage()
         {
             await _cache.GetAsync("https://localhost:7025/home/render");
-            return NoContent();
+            return Ok();
         }
 
         [HttpGet]
@@ -39,7 +39,7 @@ namespace NoSqlDBInMemory.Controllers
         public async Task<IActionResult> GetDoc()
         {
             await _cache.GetAsync("content");
-            return NoContent();
+            return Ok();
         }
 
         [HttpGet]
