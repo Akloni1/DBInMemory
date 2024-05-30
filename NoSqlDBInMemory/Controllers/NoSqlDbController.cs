@@ -32,14 +32,10 @@ namespace NoSqlDBInMemory.Controllers
             using (var igniteClient = Ignition.StartClient(clientConfiguration))
             {
                 var cacheClient = igniteClient.GetOrCreateCache<string, string>("Marketplace");
-                var contentCache = Task.Run(() =>
-                {
-                    return cacheClient.GetAsync("Products");
-                });
-                await contentCache;
+                await cacheClient.GetAsync("Products");
             }
 
-            return NoContent();
+            return Ok();
         }
 
         [HttpGet]
@@ -60,18 +56,14 @@ namespace NoSqlDBInMemory.Controllers
             using (var igniteClient = Ignition.StartClient(clientConfiguration))
             {
                 var cacheClient = igniteClient.GetOrCreateCache<string, byte[]>("Marketplace");
-                var content = Task.Run(() =>
-                {
-                    return cacheClient.GetAsync("https://localhost:7025/home/render");
-                });
-                await content;
+                await cacheClient.GetAsync("https://localhost:7025/home/render");
             }
 
 
 
 
 
-            return NoContent();
+            return Ok();
         }
 
         [HttpGet]
@@ -89,14 +81,11 @@ namespace NoSqlDBInMemory.Controllers
             using (var igniteClient = Ignition.StartClient(clientConfiguration))
             {
                 var cacheClient = igniteClient.GetOrCreateCache<string, byte[]>("Marketplace");
-                var contentCache = Task.Run(() =>
-                {
-                    return cacheClient.GetAsync("content");
-                });
-                await contentCache;
+
+                await cacheClient.GetAsync("content") ;
             }
 
-            return NoContent();
+            return Ok();
         }
 
         [HttpGet]
