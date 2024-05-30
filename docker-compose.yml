@@ -25,3 +25,6 @@ services:
       - "6379:6379"
     networks:
       - services-network
+    command: ["--conn_io_threads", "6"] 
+    command: ["--epoll_file_threads", "6"] 
+    command: ["--proactor_threads", "6"] 
