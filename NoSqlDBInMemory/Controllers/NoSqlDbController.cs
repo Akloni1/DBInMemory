@@ -25,7 +25,7 @@ namespace NoSqlDBInMemory.Controllers
             {
                 Endpoints = new List<string>
                     {
-                    "host.docker.internal"
+                    "apache"
                     }
             };
 
@@ -53,7 +53,7 @@ namespace NoSqlDBInMemory.Controllers
             {
                 Endpoints = new List<string>
                     {
-                    "host.docker.internal"
+                    "apache"
                     }
             };
 
@@ -82,7 +82,7 @@ namespace NoSqlDBInMemory.Controllers
             {
                 Endpoints = new List<string>
                     {
-                    "host.docker.internal"
+                    "apache"
                     }
             };
 
@@ -121,7 +121,7 @@ namespace NoSqlDBInMemory.Controllers
             {
                 Endpoints = new List<string>
                     {
-                    "host.docker.internal"
+                    "apache"
                     }
             };
 
