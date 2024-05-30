@@ -22,27 +22,24 @@ namespace NoSqlDBInMemory.Controllers
         [Route("Products")]
         public async Task<IActionResult> GetProducts()
         {
-            var jsonData = Task.Run(() => { return _cache.GetStringAsync("Products"); });
-            await jsonData;
-            return NoContent();
+            await _cache.GetStringAsync("Products");
+            return Ok();
         }
 
         [HttpGet]
         [Route("Page")]
         public async Task<IActionResult> GetPage()
         {
-            var content = Task.Run(() => { return _cache.GetAsync("https://localhost:7025/home/render"); });
-            await content;
-            return NoContent();
+            await _cache.GetAsync("https://localhost:7025/home/render");
+            return Ok();
         }
 
         [HttpGet]
         [Route("Doc")]
         public async Task<IActionResult> GetDoc()
         {
-            var contentCache = Task.Run(() => { return _cache.GetAsync("content"); });
-            await contentCache;
-            return NoContent();
+            await _cache.GetAsync("content");
+            return Ok();
         }
 
         [HttpGet]
