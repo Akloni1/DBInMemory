@@ -17,8 +17,8 @@ namespace NoSqlDBInMemory
             builder.Services.AddEnyimMemcached(memcachedClientOptions => {
                 memcachedClientOptions.Servers.Add(new Server
                 {
-                    Address = "host.docker.internal",
-                    Port = 11210
+                    Address = "memcached",
+                    Port = 11211
                 });
             });
 
