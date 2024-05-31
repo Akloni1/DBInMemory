@@ -25,7 +25,7 @@ namespace NoSqlDBInMemory.Controllers
             {
                 Endpoints = new List<string>
                     {
-                    "apache"
+                    "apache:10800"
                     }
             };
 
@@ -49,7 +49,7 @@ namespace NoSqlDBInMemory.Controllers
             {
                 Endpoints = new List<string>
                     {
-                    "apache"
+                    "apache:10800"
                     }
             };
 
@@ -74,7 +74,7 @@ namespace NoSqlDBInMemory.Controllers
             {
                 Endpoints = new List<string>
                     {
-                    "apache"
+                    "apache:10800"
                     }
             };
 
@@ -110,7 +110,7 @@ namespace NoSqlDBInMemory.Controllers
             {
                 Endpoints = new List<string>
                     {
-                    "apache"
+                    "apache:10800"
                     }
             };
 
