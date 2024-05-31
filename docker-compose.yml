@@ -25,6 +25,4 @@ services:
       - "10800:10800"
     networks:
       - services-network
-    volumes:
-      - ./ignite-config.xml:/opt/ignite/config/ignite-config.xml
-    entrypoint: ["/opt/ignite/apache-ignite/bin/ignite.sh", "/opt/ignite/config/ignite-config.xml"]
+    command: ["/opt/ignite/apache-ignite/bin/ignite.sh", "-J-DIGNITE_CLIENT_CONNECTOR_MAX_OPEN_CURSORS_PER_CONN=10000", "-J-DIGNITE_CLIENT_CONNECTOR_MAX_CONNECTIONS=1000"]

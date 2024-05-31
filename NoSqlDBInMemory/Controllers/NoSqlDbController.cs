@@ -21,19 +21,9 @@ namespace NoSqlDBInMemory.Controllers
         [Route("Products")]
         public async Task<IActionResult> GetProducts()
         {
-            var clientConfiguration = new IgniteClientConfiguration
-            {
-                Endpoints = new List<string>
-                    {
-                    "apache:10800"
-                    }
-            };
-
-            using (var igniteClient = Ignition.StartClient(clientConfiguration))
-            {
-                var cacheClient = igniteClient.GetOrCreateCache<string, string>("Marketplace");
-                await cacheClient.GetAsync("Products");
-            }
+            var igniteClient = IgniteClientSingleton.GetClient();
+            var cacheClient = igniteClient.GetOrCreateCache<string, string>("Marketplace");
+            await cacheClient.GetAsync("Products");
 
             return Ok();
         }
