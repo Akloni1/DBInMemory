@@ -1,0 +1,15 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="ignite.cfg" class="org.apache.ignite.configuration.IgniteConfiguration">
+        <property name="clientMode" value="false"/>
+        <property name="networkTimeout" value="30000"/> <!-- 30 seconds -->
+        <property name="failureDetectionTimeout" value="60000"/> <!-- 60 seconds -->
+        <property name="communicationSpi">
+            <bean class="org.apache.ignite.spi.communication.tcp.TcpCommunicationSpi">
+                <property name="connectTimeout" value="10000"/> <!-- 10 seconds -->
+                <property name="maxConnectTimeout" value="60000"/> <!-- 60 seconds -->
+            </bean>
+        </property>
+    </bean>
+</beans>

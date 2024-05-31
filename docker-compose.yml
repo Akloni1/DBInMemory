@@ -25,3 +25,6 @@ services:
       - "10800:10800"
     networks:
       - services-network
+    volumes:
+      - ./ignite-config.xml:/opt/ignite/config/ignite-config.xml
+    entrypoint: ["/opt/ignite/apache-ignite/bin/ignite.sh", "/opt/ignite/config/ignite-config.xml"]
